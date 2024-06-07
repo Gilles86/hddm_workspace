@@ -1,5 +1,6 @@
 # Use whatever base image is required for your project
-FROM hcp4715/hddm:1.0.1
+# FROM hcp4715/hddm:1.0.1
+FROM hcp4715/hddm:latest
 
 # Any other setup like setting up your environment, installing tools, etc.
 RUN pip install \
