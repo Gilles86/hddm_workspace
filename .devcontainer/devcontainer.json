@@ -1,0 +1,30 @@
+{
+    "name": "Your Dev Environment",
+    "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",       // Python support
+                "ms-toolsai.jupyter",     // Jupyter notebook support
+                "esbenp.prettier-vscode"  // Code formatter
+            ],
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "python.pythonPath": "/opt/conda/bin/python"
+            },
+            "overrideCommand": false
+        }
+    },
+    "mounts": [
+        "source=/data,target=/data,type=bind,consistency=cached". // MOUNT /data
+        "source=${localWorkspaceFolder}/notebooks,target=/workspace/notebooks,type=bind" // Mounte notebooks
+        ],
+    ],
+    "forwardPorts": [5000],
+    "postCreateCommand": "echo 'Container setup complete!'",
+    "workspaceFolder": "/workspace/notebooks",
+    "remoteUser": "jovyan"
+}
